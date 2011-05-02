@@ -10,7 +10,13 @@
   Enter a decimal or roman numeral value and press to convert it.
 </p>
 <form method="get">
-  <%= label_tag(:value, "Value:") %>
-  <%= text_field_tag(:value, @converted) %>
-  <input type="submit" value="Convert"></input>
+  <label for="value">Value:</label>
+  <input type="text" name="value" value="<%=@converted%>" />
+  <input type="submit" value="Convert" />
 </form>
+<% if @converted %>
+  <p>
+    <% post_to_twitter_url = "http://twitter.com/home?status=The roman numeral converter just converted #{params[:value]} to #{@converted}" %>
+    <%= link_to "Share your results on Twitter!", post_to_twitter_url %>
+  </p>
+<% end %>
