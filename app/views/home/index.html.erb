@@ -1,3 +1,10 @@
+<script type="text/javascript">
+  $().ready(function(){
+      var valueInput = $('input[name=value]');
+      valueInput.focus();
+      valueInput.select();
+  });
+</script>
 <h1>Roman Numerals</h1>
 <form method="get">
   <%= label_tag(:value, "Value:") %>
