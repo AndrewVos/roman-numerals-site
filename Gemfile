@@ -7,7 +7,7 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 
-gem 'roman-numerals'
+gem 'roman-numerals', '0.3.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
