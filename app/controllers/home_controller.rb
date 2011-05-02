@@ -8,7 +8,6 @@ class HomeController < ApplicationController
         @converted = RomanNumerals.to_decimal(params[:value])
         if @converted == 0
           @converted = nil
-          puts 'setting flash error'
           flash.now[:error] = "Please enter a valid value"
         end
       end
