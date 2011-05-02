@@ -1,1 +1,6 @@
 <h1>Roman Numerals</h1>
+<form method="get">
+  <%= label_tag(:value, "Value:") %>
+  <%= text_field_tag(:value, @converted) %>
+  <input type="submit" value="Convert"></input>
+</form>
