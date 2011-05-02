@@ -1,0 +1,11 @@
+div.error {
+  background: #FEF1EC;
+  border: 1px solid #CD0A0A;
+  color: #CD0A0A;
+  margin: 10px 0;
+  padding: 5px;
+  text-indent: 25px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
