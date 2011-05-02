@@ -25,4 +25,24 @@ class HomeControllerTest < ActionController::TestCase
     get :index, {'value' => '23'}
     assert_select 'a', :text => 'Share your results on Twitter!'
   end
+
+  test "should set an error message if the value can't be converted" do
+    get :index, {'value' => 'this will fail'}
+    assert_equal "Please enter a valid value", flash[:error]
+  end
+
+  test "should set the converted value to nil if the value can't be converted" do
+    get :index, {'value' => 'this will fail'}
+    assert_equal nil, assigns(:converted)
+  end
+
+  test "should show a error message if the value can't be converted" do
+    get :index, {'value' => 'this will fail'}
+    assert_select('div[class="error"]')
+  end
+
+  test "should not show an error message of the value can be converted" do
+    get :index, {'value' => '12'}
+    assert_select('div[class="error"]', false)
+  end
 end

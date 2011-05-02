@@ -3,17 +3,31 @@
       var valueInput = $('input[name=value]');
       valueInput.focus();
       valueInput.select();
+
+      var error = $('div.error');
+      error.hide();
+      error.slideDown('slow');
   });
 </script>
+
 <h1>Roman Numerals</h1>
+
 <p>
   Enter a decimal or roman numeral value and press to convert it.
 </p>
+
+<% if flash[:error] %>
+  <div class="error">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
 <form method="get">
   <label for="value">Value:</label>
   <input type="text" name="value" value="<%=@converted%>" />
   <input type="submit" value="Convert" />
 </form>
+
 <% if @converted %>
   <p>
     <% post_to_twitter_url = "http://twitter.com/home?status=The roman numeral converter just converted #{params[:value]} to #{@converted}" %>
